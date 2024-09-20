@@ -19,3 +19,15 @@ My name is **MAI CRESPO**
 1. Inspired
 
 ![Kaya toast](https://yakun.com/images/uploads/menu/VSM_kaya-toast-with-butter.png)
+
+# 3 things you learned
+1. "Let"
+2. Camelcase
+3. No need for "" boolean and numbers
+
+## 2 things confusing
+1. the commands in the terminal
+2. the processes in the terminal
+
+### 1 word how I feel
+1. worried
