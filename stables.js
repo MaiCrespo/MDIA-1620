@@ -18,3 +18,12 @@ console.log(STABLE_MONTHLY_FEE * 4);
 console.log("hello " + 8);
 console.log("The stable monthly fee is " + STABLE_MONTHLY_FEE);
 console.log(`My horse's name is "${horseName}" and costs $${STABLE_MONTHLY_FEE} to board him`);
+
+
+//Lab4 partner
+let horseNickname = "Willy";
+let monthlyDiscount = 70;
+console.log(`Hello, meet my darling baby "${horseName}" and his nickname is "${horseNickname}"`);
+console.log(STABLE_MONTHLY_FEE * 3)*.1;
+console.log(monthlyDiscount * 3)*.1;
+console.log("Save around 10% if you have a 3 month stay in the stables.");
