@@ -31,3 +31,16 @@ My name is **MAI CRESPO**
 
 ### 1 word how I feel
 1. worried
+
+# 3 Confused
+1. the logic of "else" (I get it, I just have a hard time incorporating it or using logic)
+2. github website (I understand VSC and terminal, but the website is confusing)
+3. how to co-work inside the github website
+
+## 3 Understand
+1. git add, git commit, git push
+2. Arrays and indexes
+3. console.log
+
+# Analogies
+1. this feels like learning how to use figma for the first time. Daunting but I am curious enough to stay interested to learn.
