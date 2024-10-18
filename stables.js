@@ -77,3 +77,17 @@ if(horseLocations[2]) {
 } else {
     console.log(horseNames[2] + " is outside");
 }
+
+
+//LESSON-7
+let horseNicknames = ["Moth", horseNickname, "Molester"];
+function logHorseNicknames(index) {
+    console.log(horseNames[index] + "'s nickname is " + horseNicknames[index]);
+}
+
+logHorseNicknames(0)
+logHorseNicknames(1)
+logHorseNicknames(2)
+
+let templateLiteralIntro = `There are ${horseNames.length} horses staying at my stables ${horseNames[0]}, ${horseNames[1]}, and ${horseNames[2]}`
+console.log(templateLiteralIntro);
