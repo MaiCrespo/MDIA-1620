@@ -1,93 +1,239 @@
-// LESSON-3 Code
-let horseName = "Benjicles";
-console.log(horseName);
-horseName = "Wilberama";
-console.log(horseName);
-let horseAge = 14;
-console.log(horseAge);
-let isHorseInside = true;
-console.log(isHorseInside);
+console.log(`
+    ____________
+   /            \
+  /              \
+ /_______Mai______\
+|  _  __  __  _  |
+| | ||  ||  || | |
+| | ||  ||  || | |    
+|___||__||__||__ 🐎🐎🐎🐎
+`);
 
-//LESSON-4 Code
-console.log(typeof horseName)
-console.log(typeof horseAge)
-const STABLE_MONTHLY_FEE = 100; //uppercase when using const
-console.log(STABLE_MONTHLY_FEE);
-console.log(STABLE_MONTHLY_FEE / 2);
-console.log(STABLE_MONTHLY_FEE * 4);
-console.log("hello " + 8);
-console.log("The stable monthly fee is " + STABLE_MONTHLY_FEE);
-console.log(`My horse's name is "${horseName}" and costs $${STABLE_MONTHLY_FEE} to board him`);
+//------------------------- Seting up shop -------------------------//
+
+let horses = [];
+let welcomeMessage = "Welcome to the 'Mai's Stables'! Do you want to meet our horses?";
+console.log(welcomeMessage)
+let latePaymentFee = 50;
+let availableStalls = 10; 
+
+//------------------------- First day -------------------------//
+
+function Horse(name, nickname, favoriteTreat, age, rent, location, personality, color) {
+  this.name = name;
+  this.nickname = nickname;
+  this.favoriteTreat = favoriteTreat;
+  this.age = age;
+  this.monthlyRent = rent;
+  this.location = location; 
+  this.personality = personality;
+  this.color = color;
+   
 
 
-//Lab4 partner
-let horseNickname = "Willy";
-let monthlyDiscount = 70;
-console.log(`Hello, meet my darling baby "${horseName}" and his nickname is "${horseNickname}"`);
-console.log(STABLE_MONTHLY_FEE * 3)*.1;
-console.log(monthlyDiscount * 3)*.1;
-console.log("Save around 10% if you have a 3 month stay in the stables.");
+  this.introduce = function() {
+    console.log(`Hi! I'm ${this.name}, also known as ${this.nickname}. My coat color is ${this.color}. I'm ${this.age} years old, and my favorite treat is ${this.favoriteTreat}. I feel ${this.personality}`);
+  };
 
-//LESSON-5 Code/ Lab 5
-if(isHorseInside) {
-    console.log(`${horseName} is inside`);
-}
-else { 
-    console.log(`${horseName} is outside`); }
-
-//LESSON-6 Code
-let word = "Wilberama";
-console.log(word.charAt(4));
-
-let horseNames = ["Timothy", horseName, "Lester"];
-let horseAges = [4, horseAge, 10, 5];
-let horseLocations = [false, isHorseInside, true, false];
-let crazyArray = ["hello", [1, 2, 4]];
-
-console.log(`Welcome to my stables. There are ${horseNames.length} horses staying here! Their names are: ${horseNames[0]}, ${horseNames[1]}, ${horseNames[2]}`);
-
-console.log(horseNames.length);
-
-console.log(horseNames[1]);
-console.log(horseAges[1]);
-console.log(horseLocations[1]);
-
-if(horseNames[0] === "Timothy") {
-    console.log("Hi Timothy")
+  this.changeLocation = function() {
+    if (this.location) {
+      console.log(`${this.name} is inside the stable.`);
+    } else {
+      console.log(`${this.name} is outside in the field.`);
+    }
+  };
 }
 
-if(horseNames.length < 5) {
-    console.log("These stables are unpopular")
-}
+let wilberama = new Horse("Wilberama", "Willy", "fried chicken", 8, 250, true, "Playful", "Cream");
+let lester = new Horse("Lester", "Lesty", "korean barbeque", 6, 230, false, "Loyal", "Black");
+let benjicles = new Horse("Benjicles", "Ben", "ice cream", 7, 240, true, "Gentle", "Brown");
 
-//Lab 6
-console.log(`Welcome to my stables. There are ${horseNames.length} horses staying here! Their names are: ${horseNames[0]}, ${horseNames[1]}, ${horseNames[2]}`);
-if(horseLocations[0]) {
-    console.log(horseNames[0] + " is inside");
+
+horses.push(wilberama, lester, benjicles);
+
+let flash = {
+  name: "Flash",
+  nickname: "F",
+  favoriteTreat: "Godiva Chocolate",
+  age: 5,
+  monthlyRent: 220,
+  location: false,
+  personality: "high energy",
+  color: "dark blue",
+  isHungry: true,
+  introduce: function() {
+    console.log(`Hi! I'm ${this.name}, also known as ${this.nickname}. My coat color is ${this.color}. I'm ${this.age} years old, and my favorite treat is ${this.favoriteTreat}. I feel ${this.personality}`);
+  },
+  changeLocation: function() {
+    if (this.location) {
+      console.log(`${this.name} is inside the stable.`);
+    } else {
+      console.log(`${this.name} is outside in the field.`);
+    }
+  }
+};
+
+horses.push(flash);
+
+Horse.isHungry = false;
+horses.forEach((horse) => { 
+  horse.introduce(); 
+  horse.changeLocation();
+  console.log(`Is ${horse.name} hungry? ${horse.isHungry ? 'Yes' : 'No'}`);
+});
+
+//------------------------- Stable roster -------------------------//
+/* 
+// Horses data structure (example representation):
+horses = [
+  {
+    name: "Wilberama", 
+    nickname: "Willy",
+    favoriteTreat: "fried chicken",
+    age: 8,
+    monthlyRent: 250,
+    location: true,
+    personality: "Playful",
+    color: "Cream",
+    isHungry: false,
+    introduce: Hi! I'm Wilberama, also known as Willy. My coat color is Cream. I'm 8 years old, and my favorite treat is fried chicken. I feel Playful,
+    changeLocation: Wilberama is inside the stable.
+  },
+  {
+    name: "Lester",
+    nickname: "Lesty",
+    favoriteTreat: "korean barbeque",
+    age: 6,
+    monthlyRent: 230,
+    location: false,
+    personality: "Loyal",
+    color: "Black",
+    isHungry: false,
+    introduce: Hi! I'm Lester, also known as Lesty. My coat color is Black. I'm 6 years old, and my favorite treat is korean barbeque. I feel Loyal,
+    changeLocation: Lester is outside in the field.
+  },
+  {
+    name: "Benjicles",
+    nickname: "Ben",
+    favoriteTreat: "ice cream",
+    age: 7,
+    monthlyRent: 240,
+    location: true,
+    personality: "Gentle",
+    color: "Brown",
+    isHungry: true,
+    introduce: Hi! I'm Benjicles, also known as Ben. My coat color is Brown. I'm 7 years old, and my favorite treat is ice cream. I feel Gentle,
+    changeLocation: Benjicles is inside the stable.
+  },
+  {
+    name: "Flash",
+    nickname: "F",
+    favoriteTreat: "Godiva Chocolate",
+    age: 5,
+    monthlyRent: 220,
+    location: false,
+    personality: "high energy",
+    color: "dark blue",
+    isHungry: true,
+    introduce: Hi! I'm Flash, also known as F. My coat color is dark blue. I'm 5 years old, and my favorite treat is Godiva Chocolate. I feel high energy,
+    changeLocation: Flash is outside in the field.
+  }
+];
+*/
+
+//---------------------- Growing business ----------------------//
+
+availableStalls -= horses.length;
+console.log(`Stalls available: ${availableStalls}`);
+
+
+if (availableStalls < 4) {
+  console.log("We need to build more stalls.");
 } else {
-    console.log(horseNames[0] + " is outside");
+  console.log(`We have ${availableStalls} available stalls!`);
 }
-if(horseLocations[1]) {
-    console.log(horseNames[1] + " is inside");
-} else {
-    console.log(horseNames[1] + " is outside");
+
+function lateFee(horse) {
+  let totalFee = horse.monthlyRent + latePaymentFee;
+  console.log(`When riding ${horse.name}, customers will owe $${totalFee} if the rent is paid late.`);
 }
-if(horseLocations[2]) {
-    console.log(horseNames[2] + " is inside");
-} else {
-    console.log(horseNames[2] + " is outside");
+
+lateFee(wilberama);
+
+function checkTreat(treat) {
+  for (let i = 0; i < horses.length; i++) {
+    if (horses[i].favoriteTreat === treat) {
+      console.log(`${horses[i].name} likes the treat!`);
+      return; 
+    } else {
+      console.log(`${horses[i].name} doesn't like that treat.`);
+    }
+  }
+}
+
+checkTreat("korean barbeque");
+
+function getNickname(horse) {
+  return horse.nickname;
+}
+
+let nickname = getNickname(lester);
+console.log(`Lester's nickname is ${nickname}.`);
+
+//------------------------- Day to day operations -------------------------//
+
+
+function checkHorseProperty(horse) {
+  if (horse.personality === "Playful") {
+    console.log(`${horse.name} is feeling playful today!`);
+  }
 }
 
 
-//LESSON-7
-let horseNicknames = ["Moth", horseNickname, "Molester"];
-function logHorseNicknames(index) {
-    console.log(horseNames[index] + "'s nickname is " + horseNicknames[index]);
+checkHorseProperty(wilberama);
+
+
+function moveHorsesOutside() {
+  horses.forEach(horse => {
+    horse.location = false; 
+    console.log(`${horse.name} has been moved outside to enjoy the sun.`);
+  });
 }
 
-logHorseNicknames(0)
-logHorseNicknames(1)
-logHorseNicknames(2)
+moveHorsesOutside();
 
-let templateLiteralIntro = `There are ${horseNames.length} horses staying at my stables ${horseNames[0]}, ${horseNames[1]}, and ${horseNames[2]}`
-console.log(templateLiteralIntro);
+function moveInside (horse) { 
+  if (horse.location === false) {
+    console.log(`${horse.name} has been called inside.`);
+  } else {
+    console.log(`${horse.name} is already inside.`);
+  }
+}
+
+moveInside(wilberama);
+moveInside(lester);
+moveInside(benjicles);
+moveInside(flash)
+
+function feedHorses() {
+  horses.forEach(horse => {
+    if (horse.location === false) {
+      moveInside(horse); /*I have been stuck in this function for 2 days :(*/
+    }
+    console.log(`${horse.name} is being fed a delicious treat!`);
+  });
+}
+
+feedHorses();
+
+function moveHorsesForBedtime() {
+  horses.forEach(horse => {
+    if (horse.location === false) {
+      moveInside(horse); 
+      console.log(`${horse.name} is brought inside for the night.`);
+    }
+  });
+}
+
+moveHorsesForBedtime();
+
